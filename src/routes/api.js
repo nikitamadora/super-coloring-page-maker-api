@@ -1,4 +1,15 @@
-import { addNewArtboard, getArtboards, getArtboardWithId } from '../controllers/artboardCtrl';
+// const express = require('express');
+// const router = express.Router();
+
+import { 
+  addNewArtboard, 
+  getArtboards, 
+  getArtboardWithId 
+} from '../controllers/artboardCtrl';
+
+// router.get('/api/v1/artboard', getArtboards);
+// router.post('/api/v1/artboard', addNewArtboard);
+// router.get('/api/v1/artboard/:artboardID', getArtboardWithId);
 
 const routes = (app) => {
   app.route('/artboard')
@@ -20,3 +31,4 @@ const routes = (app) => {
 }
 
 export default routes;
+// export default router;
