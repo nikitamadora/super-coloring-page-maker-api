@@ -1,34 +1,24 @@
-// const express = require('express');
-// const router = express.Router();
-
+import express from 'express';
 import { 
   addNewArtboard, 
   getArtboards, 
   getArtboardWithId 
 } from '../controllers/artboardCtrl';
 
-// router.get('/api/v1/artboard', getArtboards);
-// router.post('/api/v1/artboard', addNewArtboard);
-// router.get('/api/v1/artboard/:artboardID', getArtboardWithId);
+const apiRouter = express.Router();
 
-const routes = (app) => {
-  app.route('/artboard')
-    .get((req, res, next) => {
-      // middleware
-      console.log(`Request from ${req.originalUrl}`)
-      console.log(`Request type ${req.method}`)
-      next();
-    }, getArtboards)
+// -------------------------
+//        Artboards
+// -------------------------
+// Get All Artboards
+apiRouter.get('/artboard', getArtboards);
+// Get One Artboard
+apiRouter.get('/artboard/:artboardID', getArtboardWithId);
+// Add New Artboard
+apiRouter.post('/artboard', addNewArtboard);
 
-    .post(addNewArtboard);
+// TODO
+// Update an Artboard
+// Delete an Artboard
 
-  app.route('/artboard/:artboardID')
-    .get(getArtboardWithId)
-    .put((req, res) =>
-      res.send('PUT request successful!'))
-    .delete((req, res) =>
-      res.send('DELETE request successful!'))
-}
-
-export default routes;
-// export default router;
+export default apiRouter;
