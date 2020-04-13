@@ -1,5 +1,6 @@
 import express from 'express';
-import routes from './src/routes/api';
+import cors from 'cors';
+import router from './src/routes/api';
 import mongoose from 'mongoose';
 import bodyParser from 'body-parser';
 
@@ -13,15 +14,26 @@ mongoose.connect('mongodb://localhost/super-coloring-page-maker', {
   useUnifiedTopology: true,
 })
 
-// bodyParser setup
+// -------------------
+//        CORS
+// -------------------
+const corsOptions = {
+  origin: ['http://localhost:4001'],
+  methods: "GET,POST,PUT,DELETE"
+}
+
+app.use(cors(corsOptions));
+
+// -------------------
+//     bodyParser
+// -------------------
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
-routes(app);
-
-app.get('/', (req, res) => 
-  res.send(`Node and Express server running on port ${PORT}`)
-);
+// -------------------
+//       Routers
+// -------------------
+app.use('/api/v1', router);
 
 app.listen(PORT, () => 
   console.log(`Your server is running on port ${PORT}`)
