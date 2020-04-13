@@ -5,20 +5,20 @@ import {
   getArtboardWithId 
 } from '../controllers/artboardCtrl';
 
-const apiRouter = express.Router();
+const router = express.Router();
 
 // -------------------------
 //        Artboards
 // -------------------------
 // Get All Artboards
-apiRouter.get('/artboard', getArtboards);
+router.get('/artboard', getArtboards);
 // Get One Artboard
-apiRouter.get('/artboard/:artboardID', getArtboardWithId);
+router.get('/artboard/:artboardID', getArtboardWithId);
 // Add New Artboard
-apiRouter.post('/artboard', addNewArtboard);
+router.post('/artboard', addNewArtboard);
 
 // TODO
 // Update an Artboard
 // Delete an Artboard
 
-export default apiRouter;
+export default router;
