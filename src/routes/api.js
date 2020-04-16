@@ -10,11 +10,11 @@ const router = express.Router();
 // -------------------------
 //        Artboards
 // -------------------------
-// Get All Artboards
+// GET All Artboards
 router.get('/artboard', getArtboards);
-// Get One Artboard
+// GET One Artboard
 router.get('/artboard/:artboardID', getArtboardWithId);
-// Add New Artboard
+// POST New Artboard
 router.post('/artboard', addNewArtboard);
 
 // TODO

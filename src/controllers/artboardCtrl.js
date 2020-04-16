@@ -7,6 +7,7 @@ import { ArtboardSchema } from '../models/Artboard';
 // leveraging the ArtboardSchema as the model for our Artboards
 const Artboard = mongoose.model('Artboard', ArtboardSchema);
 
+// Take the request body, convert it to JSON, save to db
 export const addNewArtboard = (req, res) => {
   let newArtboard = new Artboard(req.body);
 
