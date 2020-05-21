@@ -1,1 +1,2 @@
-Back-end of the Super Coloring Page Maker web application :D
+See http://github.com/nikitamadora/super-coloring-page-maker-web
+Back-end moved to that repo :)
